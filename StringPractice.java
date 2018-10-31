@@ -10,7 +10,7 @@ public class StringPractice {
 	static Random r = new Random();
 
 	public static void main(String[] args) throws IOException {
-		String[] testNames = { "Length Method", "Compare Method", "Substring Method", "CharAt Method" };
+		String[] testNames = { "Length", "Compare", "Substring", "CharAt", "IndexOf"};
 		int testQty = testNames.length;
 		int testChoice;
 
@@ -40,10 +40,50 @@ public class StringPractice {
 			case 3:
 				charAtPractice();
 				break;
+			case 4:
+				indexOfPractice();
+				break;
 			}
 		} while (testChoice != -1);
 	}
 
+	private static void indexOfPractice() throws IOException {
+		initializeTest(".indexOf() Practice", 1);
+		
+		for (int i = 0; i < questions; i++) {
+			int index = r.nextInt(testStrings[0][i].length());
+			
+			System.out.println("str" + i + " = " + testStrings[0][i]);
+			System.out.println("str" + i + ".indexOf(" + testStrings[0][i].charAt(index) + ");");
+			
+			int answer = testStrings[0][i].indexOf(testStrings[0][i].charAt(index));
+			int guess = checkedInt("\nPredict the output: ");
+			
+			answerCheck(guess, answer);
+			
+			System.out.print("\n");
+		}
+		printScore(correctAnswers, questions);
+	}
+	
+	private static void answerCheck(int guess, int answer) {
+		if (guess == answer) {
+			System.out.println("Correct");
+			correctAnswers++;
+		} else {
+			System.out.println("Incorrect, answer is " + answer);
+		}
+	}
+	
+	private static void answerCheck(String guess, String answer) {
+		if (guess.equals(answer)) {
+			System.out.println("Correct");
+			correctAnswers++;
+		} else {
+			System.out.println("Incorrect, answer is " + answer);
+		}
+	}
+	
 	private static void charAtPractice() throws IOException {
 		initializeTest(".charAt() Practice", 1);
 		
@@ -56,12 +96,8 @@ public class StringPractice {
 			System.out.print("\nPredict the output: ");
 			String guess = kb.next();
 
-			if (guess.equals(answer)) {
-				System.out.println("Correct");
-				correctAnswers++;
-			} else {
-				System.out.println("Incorrect, answer is " + answer);
-			}
+			answerCheck(guess, answer);
+			
 			System.out.print("\n");
 		}
 		printScore(correctAnswers, questions);
