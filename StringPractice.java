@@ -18,7 +18,7 @@ public class StringPractice {
 			System.out.println("==============================");
 			System.out.println("Test List:");
 			for (int i = 0; i < testNames.length; i++) {
-				System.out.println("-" + testNames[i] + " (" + i + ")");
+				System.out.printf("- %-10s%s%d%s\n", testNames[i], " (", i, ")");
 			}
 			System.out.println("==============================");
 			testChoice = checkedInt("Enter test number: ");
@@ -53,8 +53,8 @@ public class StringPractice {
 		for (int i = 0; i < questions; i++) {
 			int index = r.nextInt(testStrings[0][i].length());
 			
-			System.out.println("str" + i + " = " + testStrings[0][i]);
-			System.out.println("str" + i + ".indexOf(" + testStrings[0][i].charAt(index) + ");");
+			System.out.println("String str = \"" + testStrings[0][i] + "\";");
+			System.out.println("System.out.println(str.indexOf(" + testStrings[0][i].charAt(index) + "));");
 			
 			int answer = testStrings[0][i].indexOf(testStrings[0][i].charAt(index));
 			int guess = checkedInt("\nPredict the output: ");
@@ -71,8 +71,8 @@ public class StringPractice {
 		
 		for (int i = 0; i < questions; i++) {
 			int index = r.nextInt(testStrings[0][i].length());
-			System.out.println("str" + i + " = " + testStrings[0][i]);
-			System.out.println("str" + i + ".charAt(" + index + ")");
+			System.out.println("String str = \"" + testStrings[0][i] + "\";");
+			System.out.println("System.out.println(str.charAt(" + index + "));");
 			
 			String answer = "" + testStrings[0][i].charAt(index);
 			System.out.print("\nPredict the output: ");
@@ -96,8 +96,8 @@ public class StringPractice {
 				endIndex++;
 			}
 
-			System.out.println("String str" + i + " = " + testStrings[0][i]);
-			System.out.println("str" + i + ".substring(" + beginIndex + "," + endIndex + ");");
+			System.out.println("String str = \"" + testStrings[0][i] + "\";");
+			System.out.println("System.out.println(str.substring(" + beginIndex + "," + endIndex + "));");
 
 			System.out.print("\nPredict the output: ");
 			String guess = kb.next();
@@ -116,9 +116,9 @@ public class StringPractice {
 		int difficulty = checkedInt("Easy (0) or hard (1): ");
 
 		for (int i = 0; i < questions; i++) {
-			System.out.println("String one" + i + " = \"" + testStrings[0][i] + "\";");
-			System.out.println("String two" + i + " = \"" + testStrings[1][i] + "\";");
-			System.out.println("first" + i + ".compareTo(" + "second" + i + ");\n");
+			System.out.println("String one = \"" + testStrings[0][i] + "\";");
+			System.out.println("String two = \"" + testStrings[1][i] + "\";");
+			System.out.println("System.out.println(one.compareTo(" + "two));\n");
 
 			int guess;
 			int answer;
@@ -149,8 +149,8 @@ public class StringPractice {
 		initializeTest(".length() Practice", 1);
 
 		for (int i = 0; i < questions; i++) {
-			System.out.println("String str" + i + " = \"" + testStrings[0][i] + "\";");
-			System.out.print("System.out.println(str" + i + ".length());\n");
+			System.out.println("String str = \"" + testStrings[0][i] + "\";");
+			System.out.print("System.out.println(str.length());\n");
 			
 			int answer = testStrings[0][i].length();
 			int guess = checkedInt("\nPredict the output: ");
