@@ -66,24 +66,6 @@ public class StringPractice {
 		printScore(correctAnswers, questions);
 	}
 	
-	private static void answerCheck(int guess, int answer) {
-		if (guess == answer) {
-			System.out.println("Correct");
-			correctAnswers++;
-		} else {
-			System.out.println("Incorrect, answer is " + answer);
-		}
-	}
-	
-	private static void answerCheck(String guess, String answer) {
-		if (guess.equals(answer)) {
-			System.out.println("Correct");
-			correctAnswers++;
-		} else {
-			System.out.println("Incorrect, answer is " + answer);
-		}
-	}
-	
 	private static void charAtPractice() throws IOException {
 		initializeTest(".charAt() Practice", 1);
 		
@@ -122,12 +104,7 @@ public class StringPractice {
 
 			String answer = testStrings[0][i].substring(beginIndex, endIndex);
 
-			if (guess.equals(answer)) {
-				System.out.println("Correct");
-				correctAnswers++;
-			} else {
-				System.out.println("Incorrect, answer is " + answer);
-			}
+			answerCheck(guess, answer);
 			System.out.print("\n");
 		}
 		printScore(correctAnswers, questions);
@@ -160,12 +137,7 @@ public class StringPractice {
 			case 1: // hard questions
 				guess = checkedInt("What will be returned?: ");
 				answer = testStrings[0][i].compareTo(testStrings[1][i]);
-				if (guess == answer) {
-					System.out.println("Correct");
-					correctAnswers++;
-				} else {
-					System.out.println("Incorrect, answer is " + answer);
-				}
+				answerCheck(guess, answer);
 				break;
 			}
 			System.out.print("\n");
@@ -182,13 +154,7 @@ public class StringPractice {
 			
 			int answer = testStrings[0][i].length();
 			int guess = checkedInt("\nPredict the output: ");
-
-			if (guess == answer) {
-				System.out.println("Correct");
-				correctAnswers++;
-			} else {
-				System.out.println("Incorrect");
-			}
+			answerCheck(guess, answer);
 			System.out.print("\n");
 		}
 		printScore(correctAnswers, questions);
@@ -199,12 +165,12 @@ public class StringPractice {
 		pause();
 	}
 
-	public static void pause() throws IOException {
+	private static void pause() throws IOException {
 		System.out.println("(Enter)");
 		System.in.read();
 	}
 
-	public static String[] generateRandomWords(int numberOfWords) {
+	private static String[] generateRandomWords(int numberOfWords) {
 		String[] words = new String[numberOfWords];
 		Random r = new Random();
 
@@ -249,6 +215,24 @@ public class StringPractice {
 		
 		correctAnswers = 0;
 		
+	}
+
+	private static void answerCheck(int guess, int answer) {
+		if (guess == answer) {
+			System.out.println("Correct");
+			correctAnswers++;
+		} else {
+			System.out.println("Incorrect, answer is " + answer);
+		}
+	}
+
+	private static void answerCheck(String guess, String answer) {
+		if (guess.equals(answer)) {
+			System.out.println("Correct");
+			correctAnswers++;
+		} else {
+			System.out.println("Incorrect, answer is " + answer);
+		}
 	}
 
 }
